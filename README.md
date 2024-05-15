@@ -2,7 +2,7 @@
 
 Download [AirSimNH](https://github.com/microsoft/AirSim/releases/download/v1.8.1-windows/AirSimNH.zip) environment
 
-Put Code folder here: .\AirSimNH\WindowsNoEditor\\**code folder here**
+download this folder and put it here: .\AirSimNH\WindowsNoEditor\\**code folder here**
 
 *Anaconda Airsim env setup:*
 > conda env create -f airsim_environment.yml
