@@ -32,10 +32,7 @@ Airsim/
 ```
 
 *PIP dependencies*
-```
-1. msgpack-rpc-python
-2. airsim
-3. pynput
-```
+> pip install msgpack-rpc-python airsim pynput
+
 
 
