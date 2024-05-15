@@ -5,10 +5,10 @@ Download [AirSimNH](https://github.com/microsoft/AirSim/releases/download/v1.8.1
 download this folder and put it here: .\AirSimNH\WindowsNoEditor\\**code folder here**
 
 *Anaconda Airsim env setup:*
->Anaconda-> Environments -> Import env : airsim-environment.yml
+> conda env create -f airsim_environment.yml
 
 *Anaconda environment export(**if you want to share your new environment with others**):*
-> Anaconda-> Environments -> Export env
+> conda env export > environment.yml
 
 running program:
 > start_drone.bat
@@ -30,9 +30,6 @@ Airsim/
     ├── Engine
     └── AirsimNH.exe
 ```
-
-*Project dependencies*
-> pip install msgpack-rpc-python airsim pynput
 
 
 

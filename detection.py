@@ -4,10 +4,13 @@ import cv2
 import numpy as np 
 import pprint
 import sys
+import math
+import geo
 
+SCALE = 50000
 
 # connect to the AirSim simulator
-client = airsim.VehicleClient()
+client = airsim.MultirotorClient()
 client.confirmConnection()
 
 # set camera name and image type to request images and detections
@@ -18,7 +21,7 @@ image_type = airsim.ImageType.Scene
 client.simSetDetectionFilterRadius(camera_name, image_type, 200 * 100) 
 # add desired object name to detect in wild card/regex format
 client.simAddDetectionFilterMeshName(camera_name, image_type, "Car*") 
-
+    
 
 while True:
     rawImage = client.simGetImage(camera_name, image_type)
@@ -29,20 +32,31 @@ while True:
     if cars:
         for car in cars:
             s = pprint.pformat(car)
-            print(f"""\r
-            Afrenis Lat,Lon,Alt: {client.getHomeGeoPoint('my_drone').latitude}, {client.getHomeGeoPoint('my_drone').longitude}, {client.getHomeGeoPoint('my_drone').altitude} m
+            drone_state = client.getMultirotorState()
+
+            drone_orientation = int(math.degrees(2*math.acos(drone_state.kinematics_estimated.orientation.w_val)))
+            drone_lat = format(client.getGpsData(vehicle_name="my_drone").gnss.geo_point.latitude,'.5f')
+            drone_lon = format(client.getGpsData(vehicle_name="my_drone").gnss.geo_point.longitude, '.5f')
+            distance_to_object = car.relative_pose.position.get_length()
+            
+            object_lat = geo.obj_coordinates(drone_lat, drone_lon, distance_to_object, drone_orientation)[0]
+            object_lon = geo.obj_coordinates(drone_lat, drone_lon, distance_to_object, drone_orientation)[1]
+
+            print(f"""
+                  
+            \rAfrenis Lat,Lon,Alt: {client.getHomeGeoPoint('my_drone').latitude}, {client.getHomeGeoPoint('my_drone').longitude}, {client.getHomeGeoPoint('my_drone').altitude} m
             Amjamindeli Lat,Lon: {format(client.getGpsData(vehicle_name="my_drone").gnss.geo_point.latitude,'.5f'), format(client.getGpsData(vehicle_name="my_drone").gnss.geo_point.longitude, '.5f')}
+            Gradusi: {drone_orientation}°
             
             Avtomobili
             ----------------
             Manqanis ID: {car.name} 
             Mandzili obieqtamde:  {car.relative_pose.position.get_length()} m
-            Koordinati: 
-
-            DroneState: {client.simGetGroundTruthKinematics('my_drone')}
+            Koordinati lat, lon: {object_lat}, {object_lon} 
+            
             """)
-            sys.stdout.flush()
 
+            sys.stdout.flush()
             cv2.rectangle(png,(int(car.box2D.min.x_val),int(car.box2D.min.y_val)),(int(car.box2D.max.x_val),int(car.box2D.max.y_val)),(255,0,0),2)
             cv2.putText(png, car.name, (int(car.box2D.min.x_val),int(car.box2D.min.y_val - 10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (36,255,12))
 
@@ -54,3 +68,5 @@ while True:
     elif cv2.waitKey(1) & 0xFF == ord('a'):
         client.simAddDetectionFilterMeshName(camera_name, image_type, "Car*")
 cv2.destroyAllWindows() 
+
+

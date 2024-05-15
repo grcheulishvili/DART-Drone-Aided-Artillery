@@ -1,15 +1,11 @@
 name: airsim
 channels:
-  - https://repo.anaconda.com/pkgs/main
-  - https://repo.anaconda.com/pkgs/r
-  - https://repo.anaconda.com/pkgs/msys2
   - defaults
 dependencies:
   - blas=1.0=mkl
   - bzip2=1.0.8=h2bbff1b_6
   - ca-certificates=2024.3.11=haa95532_0
   - colorama=0.4.6=py311haa95532_0
-  - git=2.40.1=haa95532_1
   - iniconfig=1.1.1=pyhd3eb1b0_0
   - intel-openmp=2023.1.0=h59b6b97_46320
   - libffi=3.4.4=hd77b12b_1
@@ -37,7 +33,20 @@ dependencies:
   - zlib=1.2.13=h8cc25b3_1
   - pip:
       - airsim==1.8.1
+      - contourpy==1.2.1
+      - cycler==0.12.1
+      - fonttools==4.51.0
+      - kiwisolver==1.4.5
+      - matplotlib==3.8.4
       - msgpack-python==0.5.6
       - msgpack-rpc-python==0.4.1
       - opencv-contrib-python==4.9.0.80
+      - pillow==10.3.0
+      - pyaudio==0.2.14
+      - pynput==1.7.7
+      - pyparsing==3.1.2
+      - python-dateutil==2.9.0.post0
+      - scipy==1.13.0
+      - six==1.16.0
       - tornado==4.5.3
+prefix: D:\Programs\Anaconda3\envs\airsim
