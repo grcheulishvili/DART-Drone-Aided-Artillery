@@ -31,7 +31,7 @@ Airsim/
     └── AirsimNH.exe
 ```
 
-*PIP dependencies*
+*Project dependencies*
 > pip install msgpack-rpc-python airsim pynput
 
 
