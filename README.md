@@ -31,5 +31,7 @@ Airsim/
     └── AirsimNH.exe
 ```
 
+## PIP Dependencies
+> pip install mgrs geopy pyproj 
 
 
