@@ -7,7 +7,6 @@ import sys
 import math
 import geo
 import mgrs
-from tabulate import tabulate
 
 client = airsim.MultirotorClient()
 client.confirmConnection()
