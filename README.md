@@ -1,3 +1,6 @@
+## Project Preview
+![Program in motion](https://github.com/grcheulishvili/AirsimDrone-Experiment/blob/main/preview.PNG)
+
 ## Project setup instructions
 
 Download [AirSimNH](https://github.com/microsoft/AirSim/releases/download/v1.8.1-windows/AirSimNH.zip) environment
@@ -32,6 +35,7 @@ Airsim/
 ```
 
 ## PIP Dependencies
-> pip install mgrs geopy pyproj 
+> pip install mgrs geopy pyproj
+
 
 
