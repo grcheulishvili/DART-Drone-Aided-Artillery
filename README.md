@@ -5,7 +5,7 @@
 
 Download [AirSimNH](https://github.com/microsoft/AirSim/releases/download/v1.8.1-windows/AirSimNH.zip) environment
 
-download this folder and put it here: .\AirSimNH\WindowsNoEditor\\**code folder here**
+download this repo and put it here: .\AirSimNH\WindowsNoEditor\\**code folder here**
 
 *Anaconda Airsim env setup:*
 > Anaconda > Environments> Import > import airsim_environment.yml
@@ -23,7 +23,7 @@ File Structure
 Airsim/
 └── WindowsNoEditor/
     ├── AirSimNH
-    ├── code/
+    ├── AirsimDrone-Experiment/
     │   ├── airsim_environment.yml  -> anaconda env config file 
     │   ├── controller.py  -> drone manual controls
     │   ├── detection.py -> object detection and geolocation
