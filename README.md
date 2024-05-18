@@ -13,7 +13,9 @@ download this repo and put it here: .\AirSimNH\WindowsNoEditor\\**code folder he
 *Anaconda environment export(**if you want to share your new environment with others**):*
 > Anaconda > Environments > Export > export airsim_environment.yml
 
-running program:
+running program (in anaconda prompt):
+> activate airsim
+*navigate to AirsimDrone-Experiment/ folder*
 > start_drone.bat
 
 
