@@ -8,10 +8,10 @@ Download [AirSimNH](https://github.com/microsoft/AirSim/releases/download/v1.8.1
 download this folder and put it here: .\AirSimNH\WindowsNoEditor\\**code folder here**
 
 *Anaconda Airsim env setup:*
-> conda env create -f airsim_environment.yml
+> Anaconda > Environments> Import > import airsim_environment.yml
 
 *Anaconda environment export(**if you want to share your new environment with others**):*
-> conda env export > environment.yml
+> Anaconda > Environments > Export > export airsim_environment.yml
 
 running program:
 > start_drone.bat
@@ -27,6 +27,7 @@ Airsim/
     │   ├── airsim_environment.yml  -> anaconda env config file 
     │   ├── controller.py  -> drone manual controls
     │   ├── detection.py -> object detection and geolocation
+    |   ├── geo.py -> functions related to geoprocessing
     │   ├── README.md -> you are here
     │   ├── settings.json -> Airsim config file
     │   └── start_drone.bat -> run this in anaconda "airsim" environment
