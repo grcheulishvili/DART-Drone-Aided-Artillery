@@ -15,7 +15,9 @@ download this repo and put it here: .\AirSimNH\WindowsNoEditor\\**code folder he
 
 running program (in anaconda prompt):
 > activate airsim
+
 *navigate to AirsimDrone-Experiment/ folder*
+
 > start_drone.bat
 
 
